@@ -3,7 +3,6 @@ package application;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class StringAddCalculator {
@@ -89,10 +88,9 @@ public class StringAddCalculator {
     }
 
     private static void checkNegativeNumbers(int[] numbers) {
-        IntStream.range(0, numbers.length)
-            .filter(i -> numbers[i] < 0).forEach(i -> {
-                throw new RuntimeException();
-            });
+        if (Arrays.stream(numbers).min().getAsInt() < 0) {
+            throw new RuntimeException();
+        }
     }
 }
 
