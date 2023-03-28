@@ -28,7 +28,7 @@ graph TD
     inputExpression("계산식 입력") --> checkDelimiter("구분자 확인")
     
     checkDelimiter --> |, or :|calculateExpression("계산식 실행")
-    checkDelimiter --> |other|customDelimiter("//와 \n 사이에 커스텀 구분자가 지정되어 있는가")
+    checkDelimiter --> |other|customDelimiter("//와 개행 문자 사이에 커스텀 구분자가 지정되어 있는가")
     
     customDelimiter --> |yes|createCustomDelimiter("커스텀 구분자 생성")
     customDelimiter --> |no|throwException("예외 발생")
