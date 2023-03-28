@@ -3,17 +3,18 @@
 ---
 
 ```mermaid
-flowchart TD
+flowchart LR
     subgraph beforeGame[게임 시작 전]
         inputCarNames[자동차 이름 입력] --> inputTryCount[시도 횟수 입력]    
     end
-    beforeGame --> onGame
+    inputTryCount --> Loop
     subgraph onGame[게임 플레이]
         subgraph Loop[시도]
             straight[자동차 전진] --> printResult[결과 출력]
         end
         
         isTryCountFull[시도 횟수를 초과하는가] --> |No|Loop
+        Loop --> isTryCountFull
         isTryCountFull --> |Yes|printFinalResult[최종 우승자 출력]
     end
     
