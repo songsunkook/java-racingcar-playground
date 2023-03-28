@@ -15,3 +15,24 @@
 11. 사용한 기능에 대해서 제대로 이해했는가
 12. 매직 넘버를 사용하지 않았는가
 13. 다른 사람들의 코드도 리뷰해 보았는가
+
+## 플로우차트
+
+---
+
+```mermaid
+flowchart TD
+    subgraph beforeGame[게임 시작 전]
+        inputCarNames[자동차 이름 입력] --> inputTryCount[시도 횟수 입력]    
+    end
+    beforeGame --> onGame
+    subgraph onGame[게임 플레이]
+        subgraph Loop[시도]
+            straight[자동차 전진] --> printResult[결과 출력]
+        end
+        
+        isTryCountFull[시도 횟수를 초과하는가] --> |No|Loop
+        isTryCountFull --> |Yes|printFinalResult[최종 우승자 출력]
+    end
+    
+```
