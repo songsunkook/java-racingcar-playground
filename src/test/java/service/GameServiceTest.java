@@ -4,8 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import domain.Cars;
+import exception.NotIntegerException;
 import exception.OverMaximumException;
 import exception.UnderMaximumException;
 
@@ -26,6 +28,14 @@ public class GameServiceTest {
     public void throwUnderMaximumException(String inputString) {
         assertThrows(UnderMaximumException.class, () -> {
             gameService.checkInputString(inputString.split(","));
+        });
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"a", "2s", "d13"})
+    public void throwNotIntegerException(String inputString) {
+        assertThrows(NotIntegerException.class, () -> {
+            gameService.tryCountConvertInt(inputString);
         });
     }
 }
