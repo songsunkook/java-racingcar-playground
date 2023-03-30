@@ -1,5 +1,8 @@
 package domain;
 
+import java.util.stream.IntStream;
+
+import collection.Cars;
 import constant.ConstantNumbers;
 import exception.OverMaximumException;
 import exception.UnderMaximumException;
@@ -12,8 +15,10 @@ public class InputString {
         checkException(this.stringArray);
     }
 
-    public void setCars() {
+    public void setCars(Cars cars) {
         //car 설정
+        IntStream.range(ConstantNumbers.ZERO.getNumber(), ConstantNumbers.MAX_CAR_COUNT.getNumber())
+            .forEach(i -> cars.addCar(stringArray[i]));
     }
 
     public void checkException(String[] inputString) {

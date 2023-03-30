@@ -9,20 +9,20 @@ import domain.InputString;
 import domain.TryCount;
 
 public class GameService {
-    private Cars cars = new Cars();
     private TryCount tryCount;
+    private Cars cars = new Cars();
 
-    public void startGame() throws RuntimeException {
+    public void startGame() {
         IntStream.range(ConstantNumbers.ZERO.getNumber(), ConstantNumbers.MAX_CAR_COUNT.getNumber())
             .forEach(i -> inputCarName());
     }
 
-    public void inputCarName() throws RuntimeException {
+    public void inputCarName() {
         InputString inputString = new InputString(GameController.inputCarName());
-        inputString.setCars();
+        inputString.setCars(cars);
     }
 
-    public void inputTryCount() throws RuntimeException {
+    public void inputTryCount() {
         TryCount tryCount = new TryCount(GameController.inputTryCount());
         this.tryCount = tryCount;
     }

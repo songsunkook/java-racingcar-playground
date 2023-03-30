@@ -33,6 +33,7 @@ class CarsTest {
         cars.setCars(carData);
     }*/
 
+    //Method Source를 다른 클래스에서 받아올 수 없는가..
     private static Stream<Arguments> nameArrays() {
         return Stream.of(
             Arguments.of((Object)new String[] {"a", "b", "c"}),

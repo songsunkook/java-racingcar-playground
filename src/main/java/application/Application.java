@@ -1,11 +1,16 @@
 package application;
 
 import controller.GameController;
+import view.OutputView;
 
 public class Application {
     private static GameController gameController = new GameController();
 
     public static void main(String[] args) {
-        gameController.initGame();
+        try {
+            gameController.initGame();
+        } catch (RuntimeException runtimeException) {
+            OutputView.println(runtimeException.getMessage());
+        }
     }
 }
