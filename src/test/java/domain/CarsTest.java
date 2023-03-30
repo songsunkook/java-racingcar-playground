@@ -15,7 +15,7 @@ class CarsTest {
 
     @ParameterizedTest
     @MethodSource("nameArrays")
-    public void ManageCarNames(String[] names) {
+    public void manageCarNames(String[] names) {
         IntStream.range(ConstantNumbers.ZERO.getNumber(), ConstantNumbers.MAX_CAR_COUNT.getNumber())
             .forEach(i -> cars.addCar(names[i]));
         assertEquals(cars.getCarNames(), Arrays.asList(names));
