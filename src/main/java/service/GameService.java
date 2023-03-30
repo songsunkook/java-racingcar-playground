@@ -4,14 +4,14 @@ import java.util.stream.IntStream;
 
 import controller.GameController;
 import domain.Cars;
+import domain.ConstantNumbers;
 
 public class GameService {
-    private static final int ZERO = 0;
-    private static final int MAX_CAR_COUNT = 3;
     private Cars cars = new Cars();
 
     public void startGame() {
-        IntStream.range(ZERO, MAX_CAR_COUNT).forEach(i -> inputCarName());
+        IntStream.range(ConstantNumbers.ZERO.getNumber(), ConstantNumbers.MAX_CAR_COUNT.getNumber())
+            .forEach(i -> inputCarName());
     }
 
     public void inputCarName() {
