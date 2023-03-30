@@ -1,4 +1,4 @@
-package domain;
+package constant;
 
 public enum ConstantNumbers {
     ZERO(0),

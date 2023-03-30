@@ -2,28 +2,30 @@ package service;
 
 import java.util.stream.IntStream;
 
+import constant.ConstantNumbers;
 import controller.GameController;
 import domain.Cars;
-import domain.ConstantNumbers;
+import exception.OverMaximumException;
 
 public class GameService {
     private Cars cars = new Cars();
 
-    public void startGame() {
+    public void startGame() throws RuntimeException {
         IntStream.range(ConstantNumbers.ZERO.getNumber(), ConstantNumbers.MAX_CAR_COUNT.getNumber())
             .forEach(i -> inputCarName());
     }
 
-    public void inputCarName() {
-        String[] inputString = GameController.inputCarName().split(":");
-
+    public void inputCarName() throws RuntimeException {
+        String[] inputString = GameController.inputCarName().split(",");
+        checkInputString(inputString);
         //cars.addCar();
     }
 
-    private void checkInputCarNameCount(String[] inputString) {
+    public void checkInputString(String[] inputString) throws RuntimeException {
         if (inputString.length > ConstantNumbers.MAX_CAR_COUNT.getNumber()) {
-            //throw exception
+            throw new OverMaximumException();
         }
+        //개수가 2 이하일 경우
     }
 
 }
