@@ -7,6 +7,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import domain.Cars;
 import exception.OverMaximumException;
+import exception.UnderMaximumException;
 
 public class GameServiceTest {
     private Cars cars = new Cars();
@@ -14,8 +15,16 @@ public class GameServiceTest {
 
     @ParameterizedTest
     @CsvSource(value = {"abc,def,ghi,jkl", "aaa,bbb,ccc,ddd", "qwe,asd,zxc,rfv"}, delimiter = ':')
-    public void throwExceedMaximumException(String inputString) {
+    public void throwOverMaximumException(String inputString) {
         assertThrows(OverMaximumException.class, () -> {
+            gameService.checkInputString(inputString.split(","));
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource(value = {"abc,def", "aaa,bbb", "qwe,asd"}, delimiter = ':')
+    public void throwUnderMaximumException(String inputString) {
+        assertThrows(UnderMaximumException.class, () -> {
             gameService.checkInputString(inputString.split(","));
         });
     }

@@ -2,8 +2,8 @@ package exception;
 
 import constant.ExceptionMessages;
 
-public class OverMaximumException extends RuntimeException {
-    public OverMaximumException() {
+public class UnderMaximumException extends RuntimeException {
+    public UnderMaximumException() {
         super(ExceptionMessages.EXCEPTION_MESSAGES_OVER_MAXIMUM.getMessage());
     }
 }
