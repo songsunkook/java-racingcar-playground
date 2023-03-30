@@ -7,6 +7,8 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import collection.Cars;
+import domain.InputString;
+import domain.TryCount;
 import exception.NotIntegerException;
 import exception.OverMaximumException;
 import exception.UnderMaximumException;
@@ -19,7 +21,7 @@ public class GameServiceTest {
     @CsvSource(value = {"abc,def,ghi,jkl", "aaa,bbb,ccc,ddd", "qwe,asd,zxc,rfv"}, delimiter = ':')
     public void throwOverMaximumException(String inputString) {
         assertThrows(OverMaximumException.class, () -> {
-            gameService.checkInputString(inputString.split(","));
+            new InputString(inputString.split(","));
         });
     }
 
@@ -27,7 +29,7 @@ public class GameServiceTest {
     @CsvSource(value = {"abc,def", "aaa,bbb", "qwe,asd"}, delimiter = ':')
     public void throwUnderMaximumException(String inputString) {
         assertThrows(UnderMaximumException.class, () -> {
-            gameService.checkInputString(inputString.split(","));
+            new InputString(inputString.split(","));
         });
     }
 
@@ -35,7 +37,7 @@ public class GameServiceTest {
     @ValueSource(strings = {"a", "2s", "d13"})
     public void throwNotIntegerException(String inputString) {
         assertThrows(NotIntegerException.class, () -> {
-            gameService.tryCountConvertInt(inputString);
+            new TryCount(inputString);
         });
     }
 }

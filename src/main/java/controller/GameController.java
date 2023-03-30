@@ -16,8 +16,8 @@ public class GameController {
         }
     }
 
-    public static String inputCarName() {
-        return InputView.getLine();
+    public static String[] inputCarName() {
+        return InputView.inputCarName();
     }
 
     public static String inputTryCount() {

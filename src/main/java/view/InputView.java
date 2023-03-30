@@ -8,4 +8,9 @@ public class InputView {
     public static String getLine() {
         return scanner.nextLine();
     }
+
+    public static String[] inputCarName() {
+        String string = scanner.nextLine();
+        return string.split(",");
+    }
 }
