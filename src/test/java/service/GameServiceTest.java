@@ -6,7 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import domain.Cars;
+import collection.Cars;
 import exception.NotIntegerException;
 import exception.OverMaximumException;
 import exception.UnderMaximumException;

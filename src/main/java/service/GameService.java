@@ -2,9 +2,9 @@ package service;
 
 import java.util.stream.IntStream;
 
+import collection.Cars;
 import constant.ConstantNumbers;
 import controller.GameController;
-import domain.Cars;
 import exception.NotIntegerException;
 import exception.OverMaximumException;
 import exception.UnderMaximumException;
