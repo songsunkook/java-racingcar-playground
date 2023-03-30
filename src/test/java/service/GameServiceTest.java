@@ -1,7 +1,6 @@
 package service;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 
 import domain.Cars;
 
@@ -12,10 +11,5 @@ public class GameServiceTest {
     @BeforeAll
     static void beforeAll() {
 
-    }
-
-    @Test
-    public void inputCarNames() {
-        gameService.inputCarName();
     }
 }

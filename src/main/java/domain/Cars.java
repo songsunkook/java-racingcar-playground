@@ -21,4 +21,8 @@ public class Cars {
             .forEach(i -> names.add(carList.get(i).getName()));
         return names;
     }
+
+    public void setCars(List<Car> carList) {
+        this.carList = carList;
+    }
 }

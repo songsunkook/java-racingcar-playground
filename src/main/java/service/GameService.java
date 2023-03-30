@@ -15,7 +15,15 @@ public class GameService {
     }
 
     public void inputCarName() {
-        cars.addCar(GameController.inputCarName());
+        String[] inputString = GameController.inputCarName().split(":");
+
+        //cars.addCar();
+    }
+
+    private void checkInputCarNameCount(String[] inputString) {
+        if (inputString.length > ConstantNumbers.MAX_CAR_COUNT.getNumber()) {
+            //throw exception
+        }
     }
 
 }

@@ -11,6 +11,6 @@ public class GameController {
     }
 
     public static String inputCarName() {
-        return InputView.getString();
+        return InputView.getLine();
     }
 }
