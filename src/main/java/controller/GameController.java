@@ -7,7 +7,6 @@ public class GameController {
     private GameService gameService = new GameService();
 
     public void initGame() {
-        gameService.startGame();
         gameService.inputCarName();
         gameService.inputTryCount();
     }
