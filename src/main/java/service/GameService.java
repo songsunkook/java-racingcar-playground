@@ -1,6 +1,9 @@
 package service;
 
+import java.util.stream.IntStream;
+
 import collection.Cars;
+import constant.ConstantNumbers;
 import controller.GameController;
 import domain.InputString;
 import domain.TryCount;
@@ -25,11 +28,16 @@ public class GameService {
     }
 
     public void tryLoop() {
-        tryLoopOnce();
+        IntStream.range(ConstantNumbers.ZERO.getNumber(), tryCount.get())
+            .forEach(i -> tryLoopOnce());
     }
 
     public void setCars(Cars cars) {
         //Only Use Test (다른 방법 생각해보기)
         this.cars = cars;
+    }
+
+    public void setTryCount(TryCount tryCount) {
+        this.tryCount = tryCount;
     }
 }

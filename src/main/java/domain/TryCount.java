@@ -20,4 +20,8 @@ public class TryCount {
             throw new NotIntegerException();
         }
     }
+
+    public int get() {
+        return count;
+    }
 }

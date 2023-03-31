@@ -4,6 +4,6 @@ import constant.ExceptionMessages;
 
 public class NotIntegerException extends RuntimeException {
     public NotIntegerException() {
-        super(ExceptionMessages.EXCEPTION_MESSAGES_NOT_INTEGER.getMessage());
+        super(ExceptionMessages.NOT_INTEGER.getMessage());
     }
 }

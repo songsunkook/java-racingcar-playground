@@ -53,6 +53,7 @@ public class GameServiceTest {
         Cars cars = new Cars();
         cars.setCars(carData);
         gameService.setCars(cars);
+        gameService.setTryCount(new TryCount(5));
         gameService.tryLoop();
     }
 
