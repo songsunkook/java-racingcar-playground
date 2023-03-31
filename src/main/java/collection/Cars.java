@@ -77,4 +77,21 @@ public class Cars {
 
         return cars;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        Cars parameterCars = (Cars)obj;
+        if (carList.size() != parameterCars.carList.size()) {
+            return false;
+        }
+        for (int i = ConstantNumbers.ZERO.getNumber(); i < carList.size(); i++) {
+            if (carList.get(i).getName() != parameterCars.getName(i)) {
+                return false;
+            }
+            if (carList.get(i).getLocation() != parameterCars.getLocation(i)) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

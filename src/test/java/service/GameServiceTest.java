@@ -2,11 +2,8 @@ package service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.params.ParameterizedTest;
@@ -17,7 +14,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import collection.Car;
 import collection.Cars;
-import constant.ConstantNumbers;
 import domain.InputString;
 import domain.TryCount;
 import exception.NotIntegerException;
@@ -53,27 +49,23 @@ public class GameServiceTest {
 
     @ParameterizedTest
     @MethodSource("carDataMethod")
-    public void judgeFinalWinner(List<Car> carData) {
-        Cars cars = new Cars();
-        cars.setCars(carData);
-        assertEquals(cars.getFinalWinner(), judgeWinner(cars));
-    }
+    public void judgeFinalWinner(List<Car> carData1, List<Car> carData2) {
+        Cars cars1 = new Cars();
+        cars1.setCars(carData1);
+        Cars cars2 = new Cars();
+        cars2.setCars(carData2);
 
-    private Cars judgeWinner(Cars cars) {
-        Cars result = new Cars();
-        int max = Collections.max(cars.getLocations());
-        List<Boolean> winners = new ArrayList<>();
-        IntStream.range(ConstantNumbers.ZERO.getNumber(), ConstantNumbers.MAX_CAR_COUNT.getNumber())
-            .filter(i -> cars.getLocation(i) == max)
-            .forEach(i -> result.add(cars.getCar(i)));
-        return result;
+        assertEquals(cars1.getFinalWinner().equals(cars2), true);
     }
 
     private static Stream<Arguments> carDataMethod() {
         return Stream.of(
-            Arguments.of((Object)Arrays.asList(new Car("a", 3), new Car("b", 2), new Car("c", 1))),
-            Arguments.of((Object)Arrays.asList(new Car("aaa", 3), new Car("bbb", 3), new Car("ccc"), 0)),
-            Arguments.of((Object)Arrays.asList(new Car("pobi", 5), new Car("crong", 4), new Car("honux"), 5))
+            Arguments.of((Object)Arrays.asList(new Car("a", 3), new Car("b", 2), new Car("c", 1)),
+                (Object)Arrays.asList(new Car("a", 3))),
+            Arguments.of((Object)Arrays.asList(new Car("aaa", 3), new Car("bbb", 3), new Car("ccc", 0)),
+                (Object)Arrays.asList(new Car("aaa", 3), new Car("bbb", 3))),
+            Arguments.of((Object)Arrays.asList(new Car("pobi", 5), new Car("crong", 4), new Car("honux", 5)),
+                (Object)Arrays.asList(new Car("pobi", 5), new Car("honux", 5)))
         );
     }
 }
