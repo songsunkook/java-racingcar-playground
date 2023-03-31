@@ -13,6 +13,7 @@ public class GameController {
         gameService.inputCarName();
         gameService.inputTryCount();
         gameService.tryLoop();
+        OutputView.outputFinalResult(gameService.judgeFinalWinner());
     }
 
     public static String[] inputCarName() {
