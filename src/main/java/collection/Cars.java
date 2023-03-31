@@ -24,7 +24,24 @@ public class Cars {
         return names;
     }
 
+    public List<Integer> getCarLocations() {
+        List<Integer> locations = new ArrayList<>();
+        IntStream.range(ConstantNumbers.ZERO.getNumber(), carList.size())
+            .forEach(i -> locations.add(carList.get(i).getLocation()));
+        return locations;
+    }
+
     public void setCars(List<Car> carList) {
         this.carList = carList;
+    }
+
+    public void goStraights() {
+        IntStream.range(ConstantNumbers.ZERO.getNumber(), carList.size())
+            .forEach(i -> carList.get(i).goStraight());
+    }
+
+    public void goStraights(int randomSeed) {
+        IntStream.range(ConstantNumbers.ZERO.getNumber(), carList.size())
+            .forEach(i -> carList.get(i).goStraight(randomSeed));
     }
 }

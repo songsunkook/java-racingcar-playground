@@ -2,10 +2,14 @@ package service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import collection.Car;
 import collection.Cars;
 import domain.InputString;
 import domain.TryCount;
@@ -39,5 +43,14 @@ public class GameServiceTest {
         assertThrows(NotIntegerException.class, () -> {
             new TryCount(inputString);
         });
+    }
+
+    @ParameterizedTest
+    @MethodSource("carDataMethod")
+    public void tryLoop(List<Car> carData) {
+        Cars cars = new Cars();
+        cars.setCars(carData);
+
+        gameService.tryLoop(cars);
     }
 }

@@ -3,6 +3,7 @@ package domain;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -15,6 +16,7 @@ import collection.Cars;
 import constant.ConstantNumbers;
 
 class CarsTest {
+    private static final int testRandomSeed = 10;
 
     @ParameterizedTest
     @MethodSource("nameArrays")
@@ -24,14 +26,19 @@ class CarsTest {
             .forEach(i -> cars.addCar(names[i]));
         assertEquals(cars.getCarNames(), Arrays.asList(names));
     }
-/*
-    //자동차 객체 세팅
+
     @ParameterizedTest
     @MethodSource("carDataMethod")
-    public void test(List<Car> carData) {
+    public void goStraights(List<Car> carData) {
         Cars cars = new Cars();
         cars.setCars(carData);
-    }*/
+        cars.goStraights();
+        //cars.goStraights(testRandomSeed);
+        //random test 구현해야 함
+        //seed를 매개로 넘겨주는 것까진 생각해봤는데 어떻게 적용해서 테스트할지 모르겠음
+        //assertEquals(cars.getCarLocations(), Arrays.asList());
+        System.out.println(cars.getCarLocations().get(0));
+    }
 
     //Method Source를 다른 클래스에서 받아올 수 없는가..
     private static Stream<Arguments> nameArrays() {

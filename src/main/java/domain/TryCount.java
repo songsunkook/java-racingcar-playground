@@ -9,6 +9,10 @@ public class TryCount {
         this.count = convertInt(countString);
     }
 
+    public TryCount(int count) {
+        this.count = count;
+    }
+
     public int convertInt(String inputInt) {
         try {
             return Integer.parseInt(inputInt);
