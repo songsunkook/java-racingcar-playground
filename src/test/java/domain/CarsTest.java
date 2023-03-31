@@ -23,8 +23,8 @@ class CarsTest {
     public void manageCarNames(String[] names) {
         Cars cars = new Cars();
         IntStream.range(ConstantNumbers.ZERO.getNumber(), ConstantNumbers.MAX_CAR_COUNT.getNumber())
-            .forEach(i -> cars.addCar(names[i]));
-        assertEquals(cars.getCarNames(), Arrays.asList(names));
+            .forEach(i -> cars.add(names[i]));
+        assertEquals(cars.getNames(), Arrays.asList(names));
     }
 
     @ParameterizedTest
@@ -37,7 +37,7 @@ class CarsTest {
         //random test 구현해야 함
         //seed를 매개로 넘겨주는 것까진 생각해봤는데 어떻게 적용해서 테스트할지 모르겠음
         //assertEquals(cars.getCarLocations(), Arrays.asList());
-        System.out.println(cars.getCarLocations().get(0));
+        System.out.println(cars.getLocations().get(0));
     }
 
     //Method Source를 다른 클래스에서 받아올 수 없는가..

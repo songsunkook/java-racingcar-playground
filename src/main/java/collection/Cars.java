@@ -9,22 +9,22 @@ import constant.ConstantNumbers;
 public class Cars {
     private List<Car> carList = new ArrayList<Car>();
 
-    public void addCar(String carName) {
+    public void add(String carName) {
         carList.add(new Car(carName));
     }
 
-    public String getCarName(int carIndex) {
+    public String getName(int carIndex) {
         return carList.get(carIndex).getName();
     }
 
-    public List<String> getCarNames() {
+    public List<String> getNames() {
         List<String> names = new ArrayList<>();
         IntStream.range(ConstantNumbers.ZERO.getNumber(), carList.size())
             .forEach(i -> names.add(carList.get(i).getName()));
         return names;
     }
 
-    public List<Integer> getCarLocations() {
+    public List<Integer> getLocations() {
         List<Integer> locations = new ArrayList<>();
         IntStream.range(ConstantNumbers.ZERO.getNumber(), carList.size())
             .forEach(i -> locations.add(carList.get(i).getLocation()));

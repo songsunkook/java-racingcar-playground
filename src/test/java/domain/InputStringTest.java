@@ -19,7 +19,7 @@ class InputStringTest {
         Cars cars = new Cars();
         InputString inputString = new InputString(strings);
         inputString.setCars(cars);
-        assertEquals(cars.getCarNames(), Arrays.asList(strings));
+        assertEquals(cars.getNames(), Arrays.asList(strings));
     }
 
     private static Stream<Arguments> nameArrays() {
