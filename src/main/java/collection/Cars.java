@@ -1,7 +1,9 @@
 package collection;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import constant.ConstantNumbers;
@@ -12,6 +14,14 @@ public class Cars {
 
     public void add(String carName) {
         carList.add(new Car(carName));
+    }
+
+    public void add(Car car) {
+        carList.add(car);
+    }
+
+    public Car getCar(int index) {
+        return carList.get(index);
     }
 
     public String getName(int carIndex) {
@@ -52,5 +62,19 @@ public class Cars {
 
     public void outputResult() {
         GameController.outputResult(this);
+    }
+
+    public Cars getFinalWinner() {
+        Cars cars = new Cars();
+        int max = Collections.max(getLocations());
+        List<Integer> integerList = IntStream.range(ConstantNumbers.ZERO.getNumber(), carList.size())
+            .filter(i -> carList.get(i).getLocation() == max)
+            .boxed()
+            .collect(Collectors.toList());
+
+        integerList.stream()
+            .forEach(i -> cars.add(carList.get(i)));
+
+        return cars;
     }
 }

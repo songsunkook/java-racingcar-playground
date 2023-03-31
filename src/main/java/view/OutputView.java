@@ -14,6 +14,7 @@ public class OutputView {
     }
 
     public static void outputResult(Cars cars) {
+        System.out.print("\n");
         System.out.println(RESULT_TEXT);
         IntStream.range(ConstantNumbers.ZERO.getNumber(), ConstantNumbers.MAX_CAR_COUNT.getNumber())
             .mapToObj(i -> cars.getName(i) + " : " + createLocationText(cars.getLocation(i)))
