@@ -18,6 +18,7 @@ public class OutputView {
         IntStream.range(ConstantNumbers.ZERO.getNumber(), ConstantNumbers.MAX_CAR_COUNT.getNumber())
             .mapToObj(i -> cars.getName(i) + " : " + createLocationText(cars.getLocation(i)))
             .forEach(System.out::println);
+        System.out.print("\n");
     }
 
     private static String createLocationText(int location) {
