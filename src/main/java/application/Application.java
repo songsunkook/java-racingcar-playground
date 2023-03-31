@@ -10,7 +10,7 @@ public class Application {
         try {
             gameController.initGame();
         } catch (RuntimeException runtimeException) {
-            OutputView.println(runtimeException.getMessage());
+            OutputView.outputMessage(runtimeException.getMessage());
         }
     }
 }

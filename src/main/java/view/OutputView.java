@@ -9,7 +9,7 @@ public class OutputView {
     private static final String RESULT_TEXT = "실행 결과";
     private static final String LOCATION_CHAR = "-";
 
-    public static void println(String message) {
+    public static void outputMessage(String message) {
         System.out.println(message);
     }
 
