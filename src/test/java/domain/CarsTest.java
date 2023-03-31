@@ -16,7 +16,7 @@ import collection.Cars;
 import constant.ConstantNumbers;
 
 class CarsTest {
-    private static final int testRandomSeed = 10;
+    private static final int TEST_RANDOM_SEED = 10;
 
     @ParameterizedTest
     @MethodSource("nameArrays")
@@ -33,7 +33,7 @@ class CarsTest {
         Cars cars = new Cars();
         cars.setCars(carData);
         cars.goStraights();
-        //cars.goStraights(testRandomSeed);
+        //cars.goStraights(TEST_RANDOM_SEED);
         //random test 구현해야 함
         //seed를 매개로 넘겨주는 것까진 생각해봤는데 어떻게 적용해서 테스트할지 모르겠음
         //assertEquals(cars.getCarLocations(), Arrays.asList());

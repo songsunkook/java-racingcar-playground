@@ -19,12 +19,17 @@ public class GameService {
         this.tryCount = tryCount;
     }
 
-    public void tryLoopOnce(Cars cars) {
+    public void tryLoopOnce() {
         cars.goStraights();
-        //cars.outputResult();
+        cars.outputResult();
     }
 
-    public void tryLoop(Cars cars) {
+    public void tryLoop() {
+        tryLoopOnce();
+    }
 
+    public void setCars(Cars cars) {
+        //Only Use Test (다른 방법 생각해보기)
+        this.cars = cars;
     }
 }

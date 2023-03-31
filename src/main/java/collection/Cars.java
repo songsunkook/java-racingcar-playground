@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 import constant.ConstantNumbers;
+import controller.GameController;
 
 public class Cars {
     private List<Car> carList = new ArrayList<Car>();
@@ -15,6 +16,10 @@ public class Cars {
 
     public String getName(int carIndex) {
         return carList.get(carIndex).getName();
+    }
+
+    public int getLocation(int carIndex) {
+        return carList.get(carIndex).getLocation();
     }
 
     public List<String> getNames() {
@@ -43,5 +48,9 @@ public class Cars {
     public void goStraights(int randomSeed) {
         IntStream.range(ConstantNumbers.ZERO.getNumber(), carList.size())
             .forEach(i -> carList.get(i).goStraight(randomSeed));
+    }
+
+    public void outputResult() {
+        GameController.outputResult(this);
     }
 }

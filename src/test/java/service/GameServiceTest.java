@@ -2,9 +2,12 @@ package service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -18,7 +21,6 @@ import exception.OverMaximumException;
 import exception.UnderMaximumException;
 
 public class GameServiceTest {
-    private Cars cars = new Cars();
     private GameService gameService = new GameService();
 
     @ParameterizedTest
@@ -50,7 +52,15 @@ public class GameServiceTest {
     public void tryLoop(List<Car> carData) {
         Cars cars = new Cars();
         cars.setCars(carData);
+        gameService.setCars(cars);
+        gameService.tryLoop();
+    }
 
-        gameService.tryLoop(cars);
+    private static Stream<Arguments> carDataMethod() {
+        return Stream.of(
+            Arguments.of((Object)Arrays.asList(new Car("a"), new Car("b"), new Car("c"))),
+            Arguments.of((Object)Arrays.asList(new Car("aaa"), new Car("bbb"), new Car("ccc"))),
+            Arguments.of((Object)Arrays.asList(new Car("pobi"), new Car("crong"), new Car("honux")))
+        );
     }
 }
