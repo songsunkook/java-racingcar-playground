@@ -15,13 +15,16 @@ public class OutputView {
     }
 
     public static void outputFinalResult(Cars cars) {
-        IntStream.range(ConstantNumbers.ZERO.getNumber(), ConstantNumbers.MAX_CAR_COUNT.getNumber())
-            .forEach(i -> System.out.print(cars.getCar(i).getName() + ", "));
+        for (int i = ConstantNumbers.ZERO.getNumber(); i < cars.size(); i++) {
+            System.out.print(cars.getCar(i).getName());
+            if (i != cars.size() - 1) {
+                System.out.print(", ");
+            }
+        }
         System.out.println(OutputMessages.FINAL_WINNER.getMessage());
     }
 
     public static void outputResult(Cars cars) {
-        System.out.print("\n");
         System.out.println(RESULT_TEXT);
         IntStream.range(ConstantNumbers.ZERO.getNumber(), ConstantNumbers.MAX_CAR_COUNT.getNumber())
             .mapToObj(i -> cars.getName(i) + " : " + createLocationText(cars.getLocation(i)))

@@ -28,6 +28,10 @@ public class Cars {
         return carList.get(carIndex).getName();
     }
 
+    public int size() {
+        return carList.size();
+    }
+
     public int getLocation(int carIndex) {
         return carList.get(carIndex).getLocation();
     }
