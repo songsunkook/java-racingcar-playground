@@ -35,13 +35,4 @@ public class GameService {
     public Cars judgeFinalWinner() {
         return cars.getFinalWinner();
     }
-
-    public void setCars(Cars cars) {
-        //Only Use Test (다른 방법 생각해보기)
-        this.cars = cars;
-    }
-
-    public void setTryCount(TryCount tryCount) {
-        this.tryCount = tryCount;
-    }
 }

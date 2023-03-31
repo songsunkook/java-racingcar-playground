@@ -16,7 +16,6 @@ public class InputString {
     }
 
     public void setCars(Cars cars) {
-        //car 설정
         IntStream.range(ConstantNumbers.ZERO.getNumber(), ConstantNumbers.MAX_CAR_COUNT.getNumber())
             .forEach(i -> cars.add(stringArray[i]));
     }

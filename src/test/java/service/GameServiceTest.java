@@ -21,8 +21,6 @@ import exception.OverMaximumException;
 import exception.UnderMaximumException;
 
 public class GameServiceTest {
-    private GameService gameService = new GameService();
-
     @ParameterizedTest
     @CsvSource(value = {"abc,def,ghi,jkl", "aaa,bbb,ccc,ddd", "qwe,asd,zxc,rfv"}, delimiter = ':')
     public void throwOverMaximumException(String inputString) {
