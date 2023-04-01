@@ -11,8 +11,8 @@ public class InputString {
     private String[] stringArray;
 
     public InputString(String[] string) {
-        this.stringArray = string;
-        checkException(this.stringArray);
+        stringArray = string;
+        checkException(stringArray);
     }
 
     public void setCars(Cars cars) {

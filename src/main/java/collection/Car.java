@@ -7,7 +7,7 @@ public class Car {
     private String name;
 
     public Car(String name) {
-        this.name = name;
+        this(name, 0);
     }
 
     public Car(String name, int location) {
@@ -16,11 +16,11 @@ public class Car {
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public int getLocation() {
-        return this.location;
+        return location;
     }
 
     public void goStraight() {

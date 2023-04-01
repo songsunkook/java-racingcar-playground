@@ -6,7 +6,7 @@ public class TryCount {
     private int count;
 
     public TryCount(String countString) {
-        this.count = convertInt(countString);
+        count = convertInt(countString);
     }
 
     public TryCount(int count) {
