@@ -2,18 +2,18 @@ package controller;
 
 import collection.Cars;
 import constant.OutputMessages;
-import service.GameService;
+import game.RacingGame;
 import view.InputView;
 import view.OutputView;
 
 public class GameController {
-    private GameService gameService = new GameService();
+    private RacingGame racingGame = new RacingGame();
 
     public void initGame() {
-        gameService.inputCarName();
-        gameService.inputTryCount();
-        gameService.tryLoop();
-        OutputView.outputFinalResult(gameService.judgeFinalWinner());
+        racingGame.inputCarName();
+        racingGame.inputTryCount();
+        racingGame.tryLoop();
+        OutputView.outputFinalResult(racingGame.judgeFinalWinner());
     }
 
     public static String[] inputCarName() {

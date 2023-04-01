@@ -1,4 +1,4 @@
-package service;
+package game;
 
 import java.util.stream.IntStream;
 
@@ -8,7 +8,7 @@ import controller.GameController;
 import domain.InputString;
 import domain.TryCount;
 
-public class GameService {
+public class RacingGame {
     private TryCount tryCount;
     private Cars cars = new Cars();
 

@@ -9,6 +9,7 @@ import constant.OutputMessages;
 public class OutputView {
     private static final String RESULT_TEXT = "실행 결과";
     private static final String LOCATION_CHAR = "-";
+    private static final String SPLITTER_STRING = ", ";
 
     public static void outputMessage(String message) {
         System.out.println(message);
@@ -18,7 +19,7 @@ public class OutputView {
         for (int i = ConstantNumbers.ZERO.getNumber(); i < cars.size(); i++) {
             System.out.print(cars.getCar(i).getName());
             if (i != cars.size() - 1) {
-                System.out.print(", ");
+                System.out.print(SPLITTER_STRING);
             }
         }
         System.out.println(OutputMessages.FINAL_WINNER.getMessage());
@@ -29,7 +30,7 @@ public class OutputView {
         IntStream.range(ConstantNumbers.ZERO.getNumber(), ConstantNumbers.MAX_CAR_COUNT.getNumber())
             .mapToObj(i -> cars.getName(i) + " : " + createLocationText(cars.getLocation(i)))
             .forEach(System.out::println);
-        System.out.print("\n");
+        System.out.println();
     }
 
     private static String createLocationText(int location) {
