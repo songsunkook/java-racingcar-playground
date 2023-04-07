@@ -10,7 +10,7 @@ import domain.TryCount;
 
 public class RacingGame {
     private TryCount tryCount;
-    private Cars cars = new Cars();
+    private final Cars cars = new Cars();
 
     public void inputCarName() {
         InputString inputString = new InputString(GameController.inputCarName());
