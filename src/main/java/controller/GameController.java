@@ -13,7 +13,7 @@ import view.InputView;
 import view.OutputView;
 
 public class GameController {
-    private RacingGame racingGame = new RacingGame();
+    private final RacingGame racingGame = new RacingGame();
 
     public void initGame() {
         racingGame.inputCarName();

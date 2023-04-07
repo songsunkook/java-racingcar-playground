@@ -10,7 +10,7 @@ import constant.ConstantNumbers;
 import controller.GameController;
 
 public class Cars {
-    private List<Car> carList = new ArrayList<Car>();
+    private List<Car> carList = new ArrayList<>();
 
     public void add(String carName) {
         carList.add(new Car(carName));

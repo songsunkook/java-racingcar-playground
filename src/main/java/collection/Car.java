@@ -4,7 +4,7 @@ import util.RandomManager;
 
 public class Car {
     private int location;
-    private String name;
+    private final String name;
 
     public Car(String name) {
         this(name, 0);
