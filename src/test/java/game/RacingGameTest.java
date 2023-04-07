@@ -3,6 +3,7 @@ package game;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -26,25 +27,19 @@ public class RacingGameTest {
     @ParameterizedTest
     @CsvSource(value = {"abc,def,ghi,jkl", "aaa,bbb,ccc,ddd", "qwe,asd,zxc,rfv"}, delimiter = ':')
     public void throwOverMaximumException(String inputString) {
-        assertThrows(OverMaximumException.class, () -> {
-            new InputString(inputString.split(","));
-        });
+        assertThrows(OverMaximumException.class, () -> new InputString(inputString.split(",")));
     }
 
     @ParameterizedTest
     @CsvSource(value = {"abc,def", "aaa,bbb", "qwe,asd"}, delimiter = ':')
     public void throwUnderMaximumException(String inputString) {
-        assertThrows(UnderMaximumException.class, () -> {
-            new InputString(inputString.split(","));
-        });
+        assertThrows(UnderMaximumException.class, () -> new InputString(inputString.split(",")));
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"a", "2s", "d13"})
     public void throwNotIntegerException(String inputString) {
-        assertThrows(NotIntegerException.class, () -> {
-            new TryCount(inputString);
-        });
+        assertThrows(NotIntegerException.class, () -> new TryCount(inputString));
     }
 
     @ParameterizedTest
@@ -73,12 +68,12 @@ public class RacingGameTest {
 
     private static Stream<Arguments> carDataMethod() {
         return Stream.of(
-            Arguments.of((Object)Arrays.asList(new Car("a", 3), new Car("b", 2), new Car("c", 1)),
-                (Object)Arrays.asList(new Car("a", 3))),
-            Arguments.of((Object)Arrays.asList(new Car("aaa", 3), new Car("bbb", 3), new Car("ccc", 0)),
-                (Object)Arrays.asList(new Car("aaa", 3), new Car("bbb", 3))),
-            Arguments.of((Object)Arrays.asList(new Car("pobi", 5), new Car("crong", 4), new Car("honux", 5)),
-                (Object)Arrays.asList(new Car("pobi", 5), new Car("honux", 5)))
+            Arguments.of(Arrays.asList(new Car("a", 3), new Car("b", 2), new Car("c", 1)),
+                Collections.singletonList(new Car("a", 3))),
+            Arguments.of(Arrays.asList(new Car("aaa", 3), new Car("bbb", 3), new Car("ccc", 0)),
+                Arrays.asList(new Car("aaa", 3), new Car("bbb", 3))),
+            Arguments.of(Arrays.asList(new Car("pobi", 5), new Car("crong", 4), new Car("honux", 5)),
+                Arrays.asList(new Car("pobi", 5), new Car("honux", 5)))
         );
     }
 }
