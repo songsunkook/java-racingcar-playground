@@ -18,8 +18,7 @@ public class RacingGame {
     }
 
     public void inputTryCount() {
-        TryCount tryCount = new TryCount(GameController.inputTryCount());
-        this.tryCount = tryCount;
+        this.tryCount = new TryCount(GameController.inputTryCount());
     }
 
     public void tryLoopOnce() {
