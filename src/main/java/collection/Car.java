@@ -1,6 +1,5 @@
 package collection;
 
-import util.RandomManager;
 
 public class Car {
     private int location;
@@ -25,12 +24,6 @@ public class Car {
 
     public void goStraight(boolean isStraight) {
         if (isStraight) {
-            location++;
-        }
-    }
-
-    public void goStraight(int randomSeed) {
-        if (RandomManager.straightCar(randomSeed)) {
             location++;
         }
     }

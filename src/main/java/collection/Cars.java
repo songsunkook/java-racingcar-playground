@@ -59,11 +59,6 @@ public class Cars {
             .forEach(i -> carList.get(i).goStraight(isStraightList.get(i)));
     }
 
-    public void goStraights(int randomSeed) {
-        IntStream.range(ConstantNumbers.ZERO.getNumber(), carList.size())
-            .forEach(i -> carList.get(i).goStraight(randomSeed));
-    }
-
     public void outputResult() {
         GameController.outputResult(this);
     }

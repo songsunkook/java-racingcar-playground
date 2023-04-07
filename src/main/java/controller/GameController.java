@@ -8,7 +8,8 @@ import collection.Cars;
 import constant.ConstantNumbers;
 import constant.OutputMessages;
 import game.RacingGame;
-import util.RandomManager;
+import util.RandomGenerator;
+import util.RandomSeedGenerator;
 import view.InputView;
 import view.OutputView;
 
@@ -23,13 +24,18 @@ public class GameController {
     }
 
     private void loopGame() {
+        final RandomGenerator randomSeedGenerator = new RandomSeedGenerator();
         List<Boolean> isStraightList = new ArrayList<>();
         IntStream.range(ConstantNumbers.ZERO.getNumber(), racingGame.getTryCount())
             .forEach(i -> {
-                IntStream.range(ConstantNumbers.ZERO.getNumber(), ConstantNumbers.MAX_CAR_COUNT.getNumber())
-                    .forEach(j -> isStraightList.add(RandomManager.straightCar()));
+                getRandomValues(isStraightList, randomSeedGenerator);
                 racingGame.tryLoopOnce(isStraightList);
             });
+    }
+
+    public void getRandomValues(List<Boolean> isStraightList, RandomGenerator randomGenerator) {
+        IntStream.range(ConstantNumbers.ZERO.getNumber(), ConstantNumbers.MAX_CAR_COUNT.getNumber())
+            .forEach(i -> isStraightList.add(randomGenerator.straightCar()));
     }
 
     public static String[] inputCarName() {
