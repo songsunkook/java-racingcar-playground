@@ -1,9 +1,8 @@
 package game;
 
-import java.util.stream.IntStream;
+import java.util.List;
 
 import collection.Cars;
-import constant.ConstantNumbers;
 import controller.GameController;
 import domain.InputString;
 import domain.TryCount;
@@ -21,14 +20,13 @@ public class RacingGame {
         tryCount = new TryCount(GameController.inputTryCount());
     }
 
-    public void tryLoopOnce() {
-        cars.goStraights();
+    public void tryLoopOnce(List<Boolean> isStraightList) {
+        cars.goStraights(isStraightList);
         cars.outputResult();
     }
 
-    public void tryLoop() {
-        IntStream.range(ConstantNumbers.ZERO.getNumber(), tryCount.get())
-            .forEach(i -> tryLoopOnce());
+    public int getTryCount() {
+        return tryCount.get();
     }
 
     public Cars judgeFinalWinner() {

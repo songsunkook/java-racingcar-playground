@@ -23,8 +23,8 @@ public class Car {
         return location;
     }
 
-    public void goStraight() {
-        if (RandomManager.straightCar()) {
+    public void goStraight(boolean isStraight) {
+        if (isStraight) {
             location++;
         }
     }

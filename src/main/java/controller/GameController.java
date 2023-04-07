@@ -1,8 +1,14 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
+
 import collection.Cars;
+import constant.ConstantNumbers;
 import constant.OutputMessages;
 import game.RacingGame;
+import util.RandomManager;
 import view.InputView;
 import view.OutputView;
 
@@ -12,8 +18,18 @@ public class GameController {
     public void initGame() {
         racingGame.inputCarName();
         racingGame.inputTryCount();
-        racingGame.tryLoop();
+        loopGame();
         OutputView.outputFinalResult(racingGame.judgeFinalWinner());
+    }
+
+    private void loopGame() {
+        List<Boolean> isStraightList = new ArrayList<>();
+        IntStream.range(ConstantNumbers.ZERO.getNumber(), racingGame.getTryCount())
+            .forEach(i -> {
+                IntStream.range(ConstantNumbers.ZERO.getNumber(), ConstantNumbers.MAX_CAR_COUNT.getNumber())
+                    .forEach(j -> isStraightList.add(RandomManager.straightCar()));
+                racingGame.tryLoopOnce(isStraightList);
+            });
     }
 
     public static String[] inputCarName() {

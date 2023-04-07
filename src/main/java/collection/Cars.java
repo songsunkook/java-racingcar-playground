@@ -54,9 +54,9 @@ public class Cars {
         this.carList = carList;
     }
 
-    public void goStraights() {
+    public void goStraights(List<Boolean> isStraightList) {
         IntStream.range(ConstantNumbers.ZERO.getNumber(), carList.size())
-            .forEach(i -> carList.get(i).goStraight());
+            .forEach(i -> carList.get(i).goStraight(isStraightList.get(i)));
     }
 
     public void goStraights(int randomSeed) {
@@ -76,7 +76,7 @@ public class Cars {
             .boxed()
             .collect(Collectors.toList());
 
-        integerList.stream()
+        integerList
             .forEach(i -> cars.add(carList.get(i)));
 
         return cars;
