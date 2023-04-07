@@ -27,4 +27,8 @@ public class Car {
             location++;
         }
     }
+
+    public boolean isSameLocation(int location) {
+        return this.location == location;
+    }
 }

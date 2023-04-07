@@ -3,7 +3,6 @@ package collection;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import constant.ConstantNumbers;
@@ -66,13 +65,10 @@ public class Cars {
     public Cars getFinalWinner() {
         Cars cars = new Cars();
         int max = Collections.max(getLocations());
-        List<Integer> integerList = IntStream.range(ConstantNumbers.ZERO.getNumber(), carList.size())
-            .filter(i -> carList.get(i).getLocation() == max)
-            .boxed()
-            .collect(Collectors.toList());
 
-        integerList
-            .forEach(i -> cars.add(carList.get(i)));
+        carList.stream()
+            .filter(car -> car.isSameLocation(max))
+                .forEach(cars::add);
 
         return cars;
     }
