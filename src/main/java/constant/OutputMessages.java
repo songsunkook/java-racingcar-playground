@@ -8,7 +8,7 @@ public enum OutputMessages {
     private final String message;
 
     OutputMessages(String label) {
-        this.message = label;
+        message = label;
     }
 
     public String getMessage() {

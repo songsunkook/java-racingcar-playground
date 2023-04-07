@@ -11,6 +11,6 @@ public enum ConstantNumbers {
     }
 
     public int getNumber() {
-        return this.number;
+        return number;
     }
 }
