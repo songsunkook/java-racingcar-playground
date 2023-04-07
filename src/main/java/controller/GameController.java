@@ -28,6 +28,7 @@ public class GameController {
         List<Boolean> isStraightList = new ArrayList<>();
         IntStream.range(ConstantNumbers.ZERO.getNumber(), racingGame.getTryCount())
             .forEach(i -> {
+                isStraightList.clear();
                 getRandomValues(isStraightList, randomSeedGenerator);
                 racingGame.tryLoopOnce(isStraightList);
             });
