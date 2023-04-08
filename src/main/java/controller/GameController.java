@@ -17,8 +17,8 @@ public class GameController {
     private final RacingGame racingGame = new RacingGame();
 
     public void initGame() {
-        racingGame.inputCarName();
-        racingGame.inputTryCount();
+        racingGame.setCarName(inputCarName());
+        racingGame.setTryCount(inputTryCount());
         loopGame();
         OutputView.outputFinalResult(racingGame.judgeFinalWinner());
     }
@@ -30,7 +30,7 @@ public class GameController {
             .forEach(i -> {
                 isStraightList.clear();
                 getRandomValues(isStraightList, randomSeedGenerator);
-                racingGame.tryLoopOnce(isStraightList);
+                outputResult(racingGame.tryLoopOnce(isStraightList));
             });
     }
 

@@ -3,7 +3,6 @@ package game;
 import java.util.List;
 
 import collection.Cars;
-import controller.GameController;
 import domain.InputString;
 import domain.TryCount;
 
@@ -11,18 +10,18 @@ public class RacingGame {
     private TryCount tryCount;
     private final Cars cars = new Cars();
 
-    public void inputCarName() {
-        InputString inputString = new InputString(GameController.inputCarName());
+    public void setCarName(List<String> carName) {
+        InputString inputString = new InputString(carName);
         inputString.setCars(cars);
     }
 
-    public void inputTryCount() {
-        tryCount = new TryCount(GameController.inputTryCount());
+    public void setTryCount(String tryCount) {
+        this.tryCount = new TryCount(tryCount);
     }
 
-    public void tryLoopOnce(List<Boolean> isStraightList) {
+    public Cars tryLoopOnce(List<Boolean> isStraightList) {
         cars.goStraights(isStraightList);
-        cars.outputResult();
+        return cars.getResult();
     }
 
     public int getTryCount() {

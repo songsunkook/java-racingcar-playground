@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 import constant.ConstantNumbers;
-import controller.GameController;
 
 public class Cars {
     private List<Car> carList = new ArrayList<>();
@@ -58,8 +57,8 @@ public class Cars {
             .forEach(i -> carList.get(i).goStraight(isStraightList.get(i)));
     }
 
-    public void outputResult() {
-        GameController.outputResult(this);
+    public Cars getResult() {
+        return this;
     }
 
     public Cars getFinalWinner() {
