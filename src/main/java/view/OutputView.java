@@ -9,8 +9,8 @@ import domain.CarsModel;
 public class OutputView {
     private static final String RESULT_TEXT = "실행 결과";
     private static final String LOCATION_CHAR = "-";
-    private static final String SPLITTER_FINAL_RESULT = ", ";
     private static final String SPLITTER_RANKING = " : ";
+    private static final String SPLITTER_FINAL_RESULT = ", ";
 
     public static void outputMessage(String message) {
         System.out.println(message);
