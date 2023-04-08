@@ -9,7 +9,8 @@ import domain.CarsModel;
 public class OutputView {
     private static final String RESULT_TEXT = "실행 결과";
     private static final String LOCATION_CHAR = "-";
-    private static final String SPLITTER_STRING = ", ";
+    private static final String SPLITTER_FINAL_RESULT = ", ";
+    private static final String SPLITTER_RANKING = " : ";
 
     public static void outputMessage(String message) {
         System.out.println(message);
@@ -19,7 +20,7 @@ public class OutputView {
         for (int i = ConstantNumbers.ZERO.getNumber(); i < carsModel.size(); i++) {
             System.out.print(carsModel.getName(i));
             if (i != carsModel.size() - 1) {
-                System.out.print(SPLITTER_STRING);
+                System.out.print(SPLITTER_FINAL_RESULT);
             }
         }
         System.out.println(OutputMessages.FINAL_WINNER.getMessage());
@@ -28,16 +29,16 @@ public class OutputView {
     public static void outputResult(CarsModel carsModel) {
         System.out.println(RESULT_TEXT);
         IntStream.range(ConstantNumbers.ZERO.getNumber(), ConstantNumbers.MAX_CAR_COUNT.getNumber())
-            .mapToObj(i -> carsModel.getName(i) + " : " + createLocationText(carsModel.getLocation(i)))
+            .mapToObj(i -> carsModel.getName(i) + SPLITTER_RANKING + createLocationText(carsModel.getLocation(i)))
             .forEach(System.out::println);
         System.out.println();
     }
 
     private static String createLocationText(int location) {
-        String result = new String();
+        StringBuilder result = new StringBuilder();
         for (int j = ConstantNumbers.ZERO.getNumber(); j < location; j++) {
-            result += LOCATION_CHAR;
+            result.append(LOCATION_CHAR);
         }
-        return result;
+        return result.toString();
     }
 }
