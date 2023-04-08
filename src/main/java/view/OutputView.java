@@ -2,9 +2,9 @@ package view;
 
 import java.util.stream.IntStream;
 
-import collection.Cars;
 import constant.ConstantNumbers;
 import constant.OutputMessages;
+import domain.CarsModel;
 
 public class OutputView {
     private static final String RESULT_TEXT = "실행 결과";
@@ -15,20 +15,20 @@ public class OutputView {
         System.out.println(message);
     }
 
-    public static void outputFinalResult(Cars cars) {
-        for (int i = ConstantNumbers.ZERO.getNumber(); i < cars.size(); i++) {
-            System.out.print(cars.getCar(i).getName());
-            if (i != cars.size() - 1) {
+    public static void outputFinalResult(CarsModel carsModel) {
+        for (int i = ConstantNumbers.ZERO.getNumber(); i < carsModel.size(); i++) {
+            System.out.print(carsModel.getName(i));
+            if (i != carsModel.size() - 1) {
                 System.out.print(SPLITTER_STRING);
             }
         }
         System.out.println(OutputMessages.FINAL_WINNER.getMessage());
     }
 
-    public static void outputResult(Cars cars) {
+    public static void outputResult(CarsModel carsModel) {
         System.out.println(RESULT_TEXT);
         IntStream.range(ConstantNumbers.ZERO.getNumber(), ConstantNumbers.MAX_CAR_COUNT.getNumber())
-            .mapToObj(i -> cars.getName(i) + " : " + createLocationText(cars.getLocation(i)))
+            .mapToObj(i -> carsModel.getName(i) + " : " + createLocationText(carsModel.getLocation(i)))
             .forEach(System.out::println);
         System.out.println();
     }

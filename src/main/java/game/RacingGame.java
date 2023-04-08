@@ -3,6 +3,7 @@ package game;
 import java.util.List;
 
 import collection.Cars;
+import domain.CarsModel;
 import domain.InputString;
 import domain.TryCount;
 
@@ -19,16 +20,16 @@ public class RacingGame {
         this.tryCount = new TryCount(tryCount);
     }
 
-    public Cars tryLoopOnce(List<Boolean> isStraightList) {
+    public CarsModel tryLoopOnce(List<Boolean> isStraightList) {
         cars.goStraights(isStraightList);
-        return cars.getResult();
+        return new CarsModel(cars);
     }
 
     public int getTryCount() {
         return tryCount.get();
     }
 
-    public Cars judgeFinalWinner() {
-        return cars.getFinalWinner();
+    public CarsModel judgeFinalWinner() {
+        return new CarsModel(cars.getFinalWinner());
     }
 }

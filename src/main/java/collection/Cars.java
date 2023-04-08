@@ -57,10 +57,6 @@ public class Cars {
             .forEach(i -> carList.get(i).goStraight(isStraightList.get(i)));
     }
 
-    public Cars getResult() {
-        return this;
-    }
-
     public Cars getFinalWinner() {
         Cars cars = new Cars();
         int max = Collections.max(getLocations());

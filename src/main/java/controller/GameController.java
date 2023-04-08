@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-import collection.Cars;
 import constant.ConstantNumbers;
 import constant.OutputMessages;
+import domain.CarsModel;
 import game.RacingGame;
 import util.RandomGenerator;
 import util.RandomSeedGenerator;
@@ -49,7 +49,7 @@ public class GameController {
         return InputView.getLine();
     }
 
-    public static void outputResult(Cars cars) {
-        OutputView.outputResult(cars);
+    public static void outputResult(CarsModel carsModel) {
+        OutputView.outputResult(carsModel);
     }
 }
