@@ -26,18 +26,21 @@ import exception.UnderMaximumException;
 public class RacingGameTest {
     @ParameterizedTest
     @CsvSource(value = {"abc,def,ghi,jkl", "aaa,bbb,ccc,ddd", "qwe,asd,zxc,rfv"}, delimiter = ':')
+    @DisplayName("자동차 개수가 한도를 넘어가면 예외가 발생하는가")
     public void throwOverMaximumException(String inputString) {
         assertThrows(OverMaximumException.class, () -> new InputString(Arrays.asList(inputString.split(","))));
     }
 
     @ParameterizedTest
     @CsvSource(value = {"abc,def", "aaa,bbb", "qwe,asd"}, delimiter = ':')
+    @DisplayName("자동차 개수가 한도보다 작으면 예외가 발생하는가")
     public void throwUnderMaximumException(String inputString) {
         assertThrows(UnderMaximumException.class, () -> new InputString(Arrays.asList(inputString.split(","))));
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"a", "2s", "d13"})
+    @DisplayName("시도 횟수가 정수가 아니면 예외가 발생하는가")
     public void throwNotIntegerException(String inputString) {
         assertThrows(NotIntegerException.class, () -> new TryCount(inputString));
     }

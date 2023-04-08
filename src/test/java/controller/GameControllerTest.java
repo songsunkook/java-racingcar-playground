@@ -14,7 +14,7 @@ import constant.ConstantNumbers;
 import util.FixedSeedGenerator;
 import util.RandomGenerator;
 
-@DisplayName("게임을 플레이할 때")
+@DisplayName("게임 컨트롤러가")
 class GameControllerTest {
     private static final int TEST_RANDOM_SEED = 10;
 
