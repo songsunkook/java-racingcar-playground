@@ -2,7 +2,7 @@ package domain;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.Arrays;
+import java.util.List;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -13,10 +13,10 @@ class InputStringTest {
 
     @ParameterizedTest
     @MethodSource("domain.CarsTest#nameArrays")
-    void setCars(String[] strings) {
+    void setCars(List<String> strings) {
         Cars cars = new Cars();
         InputString inputString = new InputString(strings);
         inputString.setCars(cars);
-        assertEquals(cars.getNames(), Arrays.asList(strings));
+        assertEquals(cars.getNames(), strings);
     }
 }

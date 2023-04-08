@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.List;
 import java.util.stream.IntStream;
 
 import collection.Cars;
@@ -8,23 +9,23 @@ import exception.OverMaximumException;
 import exception.UnderMaximumException;
 
 public class InputString {
-    private String[] stringArray;
+    private final List<String> stringArray;
 
-    public InputString(String[] string) {
+    public InputString(List<String> string) {
         stringArray = string;
         checkException(stringArray);
     }
 
     public void setCars(Cars cars) {
         IntStream.range(ConstantNumbers.ZERO.getNumber(), ConstantNumbers.MAX_CAR_COUNT.getNumber())
-            .forEach(i -> cars.add(stringArray[i]));
+            .forEach(i -> cars.add(stringArray.get(i)));
     }
 
-    public void checkException(String[] inputString) {
-        if (inputString.length > ConstantNumbers.MAX_CAR_COUNT.getNumber()) {
+    public void checkException(List<String> inputString) {
+        if (inputString.size() > ConstantNumbers.MAX_CAR_COUNT.getNumber()) {
             throw new OverMaximumException();
         }
-        if (inputString.length < ConstantNumbers.MAX_CAR_COUNT.getNumber()) {
+        if (inputString.size() < ConstantNumbers.MAX_CAR_COUNT.getNumber()) {
             throw new UnderMaximumException();
         }
     }

@@ -1,5 +1,7 @@
 package view;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class InputView {
@@ -10,8 +12,8 @@ public class InputView {
         return scanner.nextLine();
     }
 
-    public static String[] inputCarName() {
-        String string = scanner.nextLine();
-        return string.split(SPLIT_DELIMITER);
+    public static List<String> inputCarName() {
+        String[] string = scanner.nextLine().split(SPLIT_DELIMITER);
+        return Arrays.asList(string);
     }
 }

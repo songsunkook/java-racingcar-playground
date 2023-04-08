@@ -39,7 +39,7 @@ public class GameController {
             .forEach(i -> isStraightList.add(randomGenerator.straightCar()));
     }
 
-    public static String[] inputCarName() {
+    public static List<String> inputCarName() {
         OutputView.outputMessage(OutputMessages.INPUT_CAR_NAME.getMessage());
         return InputView.inputCarName();
     }

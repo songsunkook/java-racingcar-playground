@@ -27,13 +27,13 @@ public class RacingGameTest {
     @ParameterizedTest
     @CsvSource(value = {"abc,def,ghi,jkl", "aaa,bbb,ccc,ddd", "qwe,asd,zxc,rfv"}, delimiter = ':')
     public void throwOverMaximumException(String inputString) {
-        assertThrows(OverMaximumException.class, () -> new InputString(inputString.split(",")));
+        assertThrows(OverMaximumException.class, () -> new InputString(Arrays.asList(inputString.split(","))));
     }
 
     @ParameterizedTest
     @CsvSource(value = {"abc,def", "aaa,bbb", "qwe,asd"}, delimiter = ':')
     public void throwUnderMaximumException(String inputString) {
-        assertThrows(UnderMaximumException.class, () -> new InputString(inputString.split(",")));
+        assertThrows(UnderMaximumException.class, () -> new InputString(Arrays.asList(inputString.split(","))));
     }
 
     @ParameterizedTest

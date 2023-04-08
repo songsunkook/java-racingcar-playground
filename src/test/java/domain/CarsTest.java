@@ -3,6 +3,7 @@ package domain;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -14,22 +15,21 @@ import collection.Cars;
 import constant.ConstantNumbers;
 
 class CarsTest {
-    private static final int TEST_RANDOM_SEED = 10;
 
     @ParameterizedTest
     @MethodSource("nameArrays")
-    public void manageCarNames(String[] names) {
+    public void manageCarNames(List<String> names) {
         Cars cars = new Cars();
         IntStream.range(ConstantNumbers.ZERO.getNumber(), ConstantNumbers.MAX_CAR_COUNT.getNumber())
-            .forEach(i -> cars.add(names[i]));
-        assertEquals(cars.getNames(), Arrays.asList(names));
+            .forEach(i -> cars.add(names.get(i)));
+        assertEquals(cars.getNames(), names);
     }
 
     private static Stream<Arguments> nameArrays() {
         return Stream.of(
-            Arguments.of((Object)new String[] {"a", "b", "c"}),
-            Arguments.of((Object)new String[] {"aaa", "bbb", "ccc"}),
-            Arguments.of((Object)new String[] {"pobi", "crong", "honux"})
+            Arguments.of(Arrays.asList("a", "b", "c")),
+            Arguments.of(Arrays.asList("aaa", "bbb", "ccc")),
+            Arguments.of(Arrays.asList("pobi", "crong", "honux"))
         );
     }
 }
